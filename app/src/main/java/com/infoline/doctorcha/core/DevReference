@@ -1,0 +1,649 @@
+
+//---------------------------------------------------------------------------------------------------
+// tint tag에 사용하는 selector 예문
+//---------------------------------------------------------------------------------------------------
+
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+     <item android:state_selected="true" android:color="@color/Violet" />
+     <item android:state_pressed="true" android:color="@color/red" />
+     <item android:drawable="@color/white" />
+</selector>
+
+Lollipop에서는 위 xml을 color folder에 넣고 사용하면 이상없으나
+kikat에서는 compile은tl inflate 오류 발생함 -- kikat 이하 version은 확인 못함
+
+해결책 --> android:color tag를 android:drawable로 변경하고 drawable folder로 이동할 것   ---> 아! 아! 아!  compile은 이상없이 되지만 Lollipop에서 runtime error 난다. : ==> 안됨
+
+//---------------------------------------------------------------------------------------------------
+// 참고 사이트
+//---------------------------------------------------------------------------------------------------
+자바 프로그래머가 자주 실수 하는 10가지 - 1
+http://bestalign.github.io/2015/09/06/top-10-mistakes-java-developers-make-1/  -> 배열과 list간의 변환관계 등
+
+자바 프로그래머가 자주 실수 하는 10가지 - 2
+http://bestalign.github.io/2015/09/06/top-10-mistakes-java-developers-make-2/
+
+//----------------------------------------------------------------------------------------------------
+// Bean Class에 대한 Reflection Access
+//---------------------------------------------------------------------------------------------------
+Field[] declaredFields = bean.getClass().getDeclaredFields();
+for(Field f:declaredFields){
+    if(f.getName() == "id") {
+        f.setAccessible(true); //반드시 필요
+        try {
+            f.setInt(bean, 100);
+        }
+        catch (Exception e) {
+
+        }
+    }
+}
+
+//----------------------------------------------------------------------------------------------------
+// Sound
+//---------------------------------------------------------------------------------------------------
+//simple
+View.playSoundEffect(SoundEffectConstants.CLICK)
+
+// get the AudioManager once onCreate or similar
+audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+
+// Play a System Sound
+audioManager.playSoundEffect(SoundEffectConstants.CLICK);
+
+// OR at 50% Volume
+audioManager.playSoundEffect(SoundEffectConstants.CLICK, 0.5F);
+
+If you are on Google GLASS you can use the com.google.android.glass.media.Sounds constants
+audioManager.playSoundEffect(Sounds.TAP);
+
+//----------------------------------------------------------------------------------------------------
+// get resource id from recource name
+//---------------------------------------------------------------------------------------------------
+Resources().getIdentifier("your photo name fetched from database","drawable","package name")
+
+//----------------------------------------------------------------------------------------------------
+// viewpager fragment visibility check
+//---------------------------------------------------------------------------------------------------
+1. getItem()에 의해 신규생성시의 순서
+   fragment1 init -> fragment1 setMenuVisibility(false) -> fragment2, fragment3 ... -> fragment1 setMenuVisibility(true) -> fragment1 fragment1 onCreateView
+
+2. 화면회전시의 순서
+   fragment1, 2, 3... init -> fragment1, 2, 3... fragment1 onCreateView -> fragment1, 2, 3 setMenuVisibility(false) -> focus fragment setMenuVisibility(true)
+
+3, tab slide시
+
+4.
+ 	@Override //방법1
+ 	public void setUserVisibleHint(boolean isVisibleToUser) {
+ 		super.setUserVisibleHint(isVisibleToUser);
+ 	}
+
+ 	@Override //방법2  --> 현재로서는 1,2의 차이점이 없다.
+ 	public void setMenuVisibility(final boolean visible) {
+ 		super.setMenuVisibility(visible);
+ 	}
+
+5. 결론
+    vp.setOffscreenPageLimit(?)에서 설정되어 항상 살아 있는 fragment의 경우(slide)와 화면 회전시에는
+    onSaveInstanceState()와 restore를 setMenuVisibility에서 처리함이 가장 적절하다
+    단 위 설며대로 , 1, 2의 구분이 가능하도록 flag 변수를 활용해야만 한다.
+
+//----------------------------------------------------------------------------------------------------
+// bundle의 keySet 가져오기
+//---------------------------------------------------------------------------------------------------
+ 	for(String key : savedInstanceState.keySet()) {
+        Log.v("bundle key : " + key);
+    }
+
+
+//----------------------------------------------------------------------------------------------------
+// ViewPager
+//---------------------------------------------------------------------------------------------------
+
+
+//----------------------------------------------------------------------------------------------------
+// Fragment & ViewPager
+//---------------------------------------------------------------------------------------------------
+init - onCreate - onCreateView -
+
+1. ViewPager sliding : setOffscreenPageLimit를 벗어나는 fragment만 onDestroyView - view는 소멸되고 var 모두 살아 있다.
+                       단, LayoutManager를 새롭게 inflate한 RecyclerView에 attach하면 중복 attach 오류발생하므로 LayoutManager를 새로 생성할 것
+2. ViewPager sliding : setOffscreenPageLimit에 들어오는 fragment는 onCreateView
+3. 화면회전시 범위내에 있건 onDestroyView되었건 관계없이 all detach된다.
+4. 근데 완전 detach된 놈이 onSaveInstanceState()로 기들어 오므로 주의할 것 - 이 경우 view, var 모두 소멸되었다.
+
+아래 둘 다 setOffscreenPageLimit를 벗어난 fragment의 경우 이미 onDestroyView된 상태이므로 아래에서는 생략된다
+화면회전 : onSaveInstanceState - onDestroyView - onDestroy - onDetach
+Activity finish : onDestroyView - onDestroy - onDetach
+
+//----------------------------------------------------------------------------------------------------
+// layout에 관련된 기본 상식들
+//---------------------------------------------------------------------------------------------------
+1. layout Width, height
+    1). Width, height를 wrap_content로 설정하고
+    2). xml에서 visivility = GONE으로 설정할 경우 최초 VISIBLE되기 전까지는 Width, height를 얻을 수 없다.
+    3). 이 경우 최초 animation을 위한 Width, height가 필요한 경우 onCreate()에서 ViewTreeObserver.OnPreDrawListener()를 구현하여 getMeasure()를 구해야 된다.
+    4). 단, Width, height를 특정할 경우는 바로 참조할 수 있다
+
+//----------------------------------------------------------------------------------------------------
+// layout에 관련된 기본 상식들
+//---------------------------------------------------------------------------------------------------
+
+    1. ObjectAnimator는 ValueAnimator의 확장 class이다
+
+    2. ObjectAnimator.addListener(new AnimatorListenerAdapter() { }
+        1) onAnimationStart, onAnimationEnd, onAnimationCancel, onAnimationRepeat중 필요한 것만 overriding 하면 된다
+        2) onAnimationUpdate는 지원되지 않는다
+        3) API 11 이상
+
+    2. ValueAnimator.addListener(new AnimatorListenerAdapter() { }
+        1) onAnimationStart, onAnimationEnd, onAnimationCancel, onAnimationRepeat 모두 반드시 overriding 해야 된다
+        2) onAnimationUpdate가 지원된다
+        3) API 11 이상
+
+    3.
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            //makeClipRevealAnimation --> added v23
+            //makeTaskLaunchBehind --> added v21
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(getActivity(), v.findViewById(R.id.iv50102_1), "profile"); //이 경우 import android.util.Pair 사용
+            startActivity(intent, options.toBundle());
+        }
+        else {
+            //ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), v.findViewById(R.id.iv50102_1), "profile");
+            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), new Pair(v.findViewById(R.id.iv50102_1), "profile"));
+            startActivity(intent, options.toBundle());
+        }
+
+
+//----------------------------------------------------------------------------------------------------
+// logan square && Parcelable
+//---------------------------------------------------------------------------------------------------
+http://www.programcreek.com/java-api-examples/index.php?source_dir=twittnuker-master/twittnuker.component.common/src/main/java/de/vanita5/twittnuker/model/StatusShortenResult.java
+
+private String cursorToString(Cursor crs) {
+    JSONArray arr = new JSONArray();
+    crs.moveToFirst();
+    while (!crs.isAfterLast()) {
+        int nColumns = crs.getColumnCount();
+        JSONObject row = new JSONObject();
+        for (int i = 0 ; i < nColumns ; i++) {
+            String colName = crs.getColumnName(i);
+            if (colName != null) {
+                String val = "";
+                try {
+                    switch (crs.getType(i)) {
+                    case Cursor.FIELD_TYPE_BLOB   : row.put(colName, crs.getBlob(i).toString()); break;
+                    case Cursor.FIELD_TYPE_FLOAT  : row.put(colName, crs.getDouble(i))         ; break;
+                    case Cursor.FIELD_TYPE_INTEGER: row.put(colName, crs.getLong(i))           ; break;
+                    case Cursor.FIELD_TYPE_NULL   : row.put(colName, null)                     ; break;
+                    case Cursor.FIELD_TYPE_STRING : row.put(colName, crs.getString(i))         ; break;
+                    }
+                } catch (JSONException e) {
+                }
+            }
+        }
+        arr.put(row);
+        if (!crs.moveToNext())
+            break;
+    }
+    return arr.toString();
+}
+
+
+//----------------------------------------------------------------------------------------------------
+// about debugging message
+//---------------------------------------------------------------------------------------------------
+=E/ViewRootImpl(15395): sendUserActionEvent() mView == null
+삼성 계열 디버깅 모드 때 발생됨. 무시해도 됨
+
+=W/art: Suspending all threads took: 17.024ms
+Check if you don't execute heavy methods. Might be, that GC is stopping execution.
+E.g. maybe you are pretty formatting json received from backend and that takes a lot of memory and time and then system calls GC?
+------------> BackgroundImage 큰거 제거해도 message 안없어짐
+
+=I/art: Background sticky concurrent mark sweep GC freed 40508(2MB) AllocSpace objects, 0(0B) LOS objects, 7% free, 23MB/25MB, paused 8.308ms total 51.774ms
+1. 혹시 큰 이미지를 제대로 제거 하지 않았나...
+2. 거대한 Object가 static 으로 정의 되어 있는가...
+   (이럴 경우, Object를 static Instance 화 시켜 메모리가 새로 할당되는 것을 막는다.)
+3. static 함수가 너무 남발되어 있지는 않은가... (전 여기에서 가장 많이 걸림)
+4. 혹시, Gson 데이터 형식이 맞게 되어 있는가..
+5. 혹시, 무한 반복 하고 있는 함수가 있지 않나??? 재귀로 돌고 있는 함수!
+
+03-19 17:27:15.924 2132-2132/com.infoline.doctorcha E/libEGL: call to OpenGL ES API with no current context (logged once per thread)
+
+//----------------------------------------------------------------------------------------------------
+// color opacity Hex
+//---------------------------------------------------------------------------------------------------
+100% — FF
+95% — F2
+90% — E6
+85% — D9
+80% — CC
+75% — BF
+70% — B3
+65% — A6
+60% — 99
+55% — 8C
+50% — 80
+45% — 73
+40% — 66
+35% — 59
+30% — 4D
+25% — 40
+20% — 33
+15% — 26
+10% — 1A
+5% — 0D
+0% — 00
+
+//----------------------------------------------------------------------------------------------------
+// activgity
+//---------------------------------------------------------------------------------------------------
+1. Life Cycle : http://androidhuman.com/246
+
+//----------------------------------------------------------------------------------------------------
+// hide statusbar
+//---------------------------------------------------------------------------------------------------
+http://cloudylab.blogspot.kr/2015/02/android-full-screen.html --> 상세설명
+
+if( Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH )
+            uiOption |= View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+
+        if( Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN )
+            uiOption |= View.SYSTEM_UI_FLAG_FULLSCREEN;
+
+        if( Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT )
+            uiOption |= View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+
+        getWindow().getDecorView().setSystemUiVisibility(uiOption);
+
+//----------------------------------------------------------------------------------------------------
+// time
+//---------------------------------------------------------------------------------------------------
+long endTime = System.nanoTime();
+        long duration = TimeUnit.NANOSECONDS.toMicros(endTime - startTime);
+
+//----------------------------------------------------------------------------------------------------
+// ideaa 환경에서 jax-rs 구현
+//---------------------------------------------------------------------------------------------------
+1. https://www.youtube.com/watch?v=D3nnjmK1GwEc
+2. glasssfish server 설명 : http://kin.naver.com/qna/detail.nhn?d1id=1&dirId=1040201&docId=155496274&qb=Z2xhc3NmaXNoIHNlcnZlcg==&enc=utf8&section=kin&rank=2&search_sort=0&spq=0&pid=SYXj7spySERsss933uKsssssst4-062023&sid=91lECP25HBxTAQMFBQ/5oQ%3D%3D
+https://jersey.java.net/documentation/latest/deployment.html#deployment.servlet.3
+3. json serialize & deserialize
+http://cafe.naver.com/devandroi/902
+4. http rest - retrofit2
+https://futurestud.io/blog/retrofit-add-custom-request-header
+https://realm.io/kr/news/droidcon-jake-wharton-simple-http-retrofit-2/
+https://guides.codepath.com/android/Consuming-APIs-with-Retrofit#create-java-objects-for-resources
+5. 안드로이드 login 구현
+http://www.slideshare.net/aksmj/flask-redis-retrofit
+
+
+
+/================================================================================================================
+
+//----------------------------------------------------------------------------------------------------
+// Dialog
+//---------------------------------------------------------------------------------------------------
+1. http://gunhansancar.com/bottom-sheets-in-android/ - 설명
+   https://guides.codepath.com/android/Using-DialogFragment
+
+
+2. Dialog를 이용한 google bottom sheet 구현 - 어떤 용도일까?
+public void openBottomSheet() {
+
+    View view = getLayoutInflater().inflate(R.layout.bottom_sheet_emp_cov, null);
+    Spinner spin1 = (Spinner) view.findViewById(R.id.spin1);
+    Spinner spin2 = (Spinner) view.findViewById(R.id.spin2);
+    ListView catList = (ListView) view.findViewById(R.id.listItems);
+    Button btnDone = (Button) view.findViewById(R.id.btnDone);
+
+    final Dialog mBottomSheetDialog = new Dialog(RepActivity.this,
+            R.style.MaterialDialogSheet);
+    mBottomSheetDialog.setContentView(view);
+    mBottomSheetDialog.setCancelable(true);
+    mBottomSheetDialog.getWindow().setLayout(LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT);
+    mBottomSheetDialog.getWindow().setGravity(Gravity.BOTTOM);
+    mBottomSheetDialog.show();
+
+    spin1.setAdapter(new ArrayAdapter<String>(RepActivity.this, android.R.layout.simple_dropdown_item_1line, items));
+    spin2.setAdapter(new ArrayAdapter<String>(RepActivity.this, android.R.layout.simple_dropdown_item_1line, items));
+
+    catList.setAdapter(categoryListAdapter);
+
+    btnDone.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            mBottomSheetDialog.dismiss();
+        }
+    });
+
+}
+
+<style name="MaterialDialogSheet" parent="@android:style/Theme.Dialog">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowAnimationStyle">@style/MaterialDialogSheetAnimation</item>
+    </style>
+
+    <style name="MaterialDialogSheetAnimation">
+        <item name="android:windowEnterAnimation">@anim/popup_show</item>
+        <item name="android:windowExitAnimation">@anim/popup_hide</item>
+    </style>
+
+/////////
+material alert dialog
+http://www.materialdoc.com/alerts/
+
+//
+TelephonyManager telManager = (TelephonyManager)getSystemService(TELEPHONY_SERVICE);
+        CommonUtil.writeLog(telManager.getLine1Number());
+
+
+
+//----------------------------------------------------------------------------------------------------
+// Camera
+//---------------------------------------------------------------------------------------------------
+/*
+Samsung Note 3
+Samsung Galaxy S5
+Google Nexus 6 with 5.1.1
+*/
+
+//image picker 종류별로 다 나온다. drop-box, es 파일 탐색기 등
+Intent intent = new Intent();
+intent.setType("image/*");
+intent.setAction(Intent.ACTION_GET_CONTENT);
+intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+startActivityForResult(Intent.createChooser(intent, "겔러리 선택"), 1);
+break;
+
+
+
+
+
+
+
+/*
+    @OnClick({R.id.bt_send, R.id.bt_start})
+    protected void OnClick_send(View v){
+        if(v.getId() == R.id.bt_send) {
+            FileUploadService service = ServiceGenerator.createService(FileUploadService.class);
+
+            MediaType MEDIA_TYPE_IMG = MediaType.parse("image/jpeg");
+            MultipartBody.Builder builder = new MultipartBody.Builder();
+            builder.setType(MultipartBody.FORM);
+
+
+            RequestBody requestBody;
+
+            try {
+                for(Uri uri : uriList) {
+                    if(uri != null) {
+                        File file = new File(mediaUtil.getRealPathFromUri(this, uri));
+                        requestBody = RequestBody.create(MEDIA_TYPE_IMG, file);
+                        CommonUtil.writeLog("file.getName() == " + file.getName());
+                        builder.addFormDataPart("body", file.getName(), requestBody);
+                    }
+                }
+
+                RequestBody finalRequestBody = builder.build();
+
+                //------------------------------------------------
+
+                RequestBody description = RequestBody.create(MediaType.parse("multipart/form-data"), "this is description");
+
+                Call<ResponseBody> call = service.addEvent(description, finalRequestBody);
+                call.enqueue(new Callback<ResponseBody>() {
+                    @Override
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                        CommonUtil.writeLog("response == " + response.body().toString());
+                        bt_send.setText("response == " + response.body().toString());
+
+                    }
+
+
+                    @Override
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+                        t.printStackTrace();
+                        t.getCause();
+                    }
+                });
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        else {
+            finish();
+            overridePendingTransition(R.anim.activity_slide_in_right, R.anim.activity_slide_out_left);
+        }
+    }
+    */
+
+    /*
+      @OnClick({R.id.tv_send})
+      protected void OnClick_send2(View v){
+          FileUploadService service = ServiceGenerator.createService(FileUploadService.class);
+          //uriList[0, 1, 2] : null 또는 content://media/external/images/media/14412
+
+          for(Uri uri : uriList) {
+              if(uri != null) {
+                  String realPath =  mediaUtil.getRealPathFromUri(this, uri); // ==> /storage/emulated/0/daumcafe/20160602_1332_908.jpg
+                  File file = new File(realPath);
+                  CommonUtil.writeLog(realPath);
+
+                  // create RequestBody instance from file
+                  RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file);
+
+                  // MultipartBody.Part is used to send also the actual name
+                  MultipartBody.Part body = MultipartBody.Part.createFormData("picture", file.getName(), requestFile);
+
+                  // add another part within the multipart request
+                  String descriptionString = "hello, this is description speaking";
+                  RequestBody description = RequestBody.create(MediaType.parse("multipart/form-data"), descriptionString);
+
+                  Call<ResponseBody> call = service.upload(description, body);
+                  call.enqueue(new Callback<ResponseBody>() {
+                      @Override
+                      public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                          CommonUtil.writeLog("Upload", "success");
+                      }
+
+                      @Override
+                      public void onFailure(Call<ResponseBody> call, Throwable t) {
+                          CommonUtil.writeLog("Upload error:", t.getMessage());
+                      }
+                  });
+
+              }
+          }
+      }
+  */
+
+  /*
+  getDefaultSharedPreferences의 android 내부 source
+  public static SharedPreferences getDefaultSharedPreferences(Context context) {
+      return context.getSharedPreferences(getDefaultSharedPreferencesName(context),
+          getDefaultSharedPreferencesMode());
+  }
+
+  private static String getDefaultSharedPreferencesName(Context context) {
+      return context.getPackageName() + "_preferences";
+  }
+
+  private static int getDefaultSharedPreferencesMode() {
+      return Context.MODE_PRIVATE;
+  }
+  */
+
+  /*
+  retrofit2 async
+  final RetrofitInterface.AuthService authService = ServiceGenerator.createService(RetrofitInterface.AuthService.class);
+          final Call<JsonObject> call = authService.login(hn, nn, upw);
+
+          call.enqueue(new Callback<JsonObject>() {
+              @Override
+              public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                  CommonUtil.writeLog(null);
+                  String errMsg = null;
+
+                  if(response.code() == 200) {
+                      final JsonObject jo = response.body();
+                      final BeanResponse beanResponse = getBeanResponseFromJson(jo);
+
+                      try {
+                          final MainCons.EnumResponseCode enumResponseCode = MainCons.EnumResponseCode.valueOf(beanResponse.code);
+
+                          if(enumResponseCode == MainCons.EnumResponseCode.SUCCESS) {
+                              beanMember = LoganSquare.parse(beanResponse.data, BeanMember.class);
+                              et_nn.setText(beanMember.nn);
+                          }
+                          else {
+                              errMsg = beanResponse.msg;
+                          }
+                      }
+                      catch (IOException e) {
+                          //java.lang.IllegalArgumentException:  is not a constant in com.infoline.doctorcha.presentation.MainCons$EnumResultCode
+                          errMsg = e.getMessage();
+                      }
+                  }
+                  else {
+                      errMsg = response.message(); //확인안된 메소드
+                      //webservice쪽에서 무조건 200으로 보낸다.
+                  }
+
+                  if(errMsg != null) {
+                      CommonUtil.writeLog(errMsg);
+                      Toast.makeText(LoginActivity_Backup.this,	errMsg, Toast.LENGTH_LONG).show();
+                  }
+
+                  pd.dismiss();
+              }
+
+              @Override
+              public void onFailure(Call<JsonObject> call, Throwable t) {
+                  CommonUtil.writeLog(null);
+                  pd.dismiss();
+                  Toast.makeText(LoginActivity_Backup.this,	t.getMessage(), Toast.LENGTH_LONG).show();
+              }
+          });
+  */
+
+  /*
+  AsyncTask + retorfir2 sync
+  private class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
+          String code = null;
+          String msg = null;
+          String clientErrMsg = null;
+          MainCons.EnumResponseCode enumResponseCode;
+          JsonObject jo = null;
+          final String upw = et_upw.getText().toString();
+
+          UserLoginTask() {
+              CommonUtil.writeLog(null);
+          }
+
+          @Override
+          protected Boolean doInBackground(Void... params) {
+              CommonUtil.writeLog(null);
+              boolean success = false;
+              final RetrofitInterface.AuthService authService = ServiceGenerator.createService(RetrofitInterface.AuthService.class);
+              final Call<JsonObject> call = authService.login(hn, nn, upw);
+
+              try {
+                  //1. sync로 실행할 경우 MainTread에서 수행하면 오류발생
+                  //2. async로 실핼할 경우는 MainTread에서 수행해도 무방
+                  jo = call.execute().body();
+              }
+              catch (IOException e) {
+                  //1. java.net.ConnectException: Failed to connect to /192.168.0.16:8080
+                  //2. WebService가 구동되지 않거나 폰의 네트워크가 사용불가인 경우
+                  clientErrMsg = e.getMessage();
+              }
+
+              if(jo != null) {
+                  //final JsonElement jeErr= jo.get("err");
+                  final JsonElement jeCode= jo.get("code");
+                  final JsonElement jeMsg= jo.get("msg");
+
+                  code = jeCode.getAsString();
+                  msg = jeMsg.getAsString();
+
+                  try {
+                      enumResponseCode = MainCons.EnumResponseCode.valueOf(code);
+
+                      if(enumResponseCode == MainCons.EnumResponseCode.SUCCESS) {
+                          success = true;
+                      }
+                  }
+                  catch (IllegalArgumentException e) {
+                      //java.lang.IllegalArgumentException:  is not a constant in com.infoline.doctorcha.presentation.MainCons$EnumResultCode
+                      clientErrMsg = e.getMessage();
+                  }
+              }
+
+              return success;
+          }
+
+          @Override
+          protected void onPostExecute(final Boolean success) {
+              CommonUtil.writeLog(null);
+              userLoginTask = null;
+
+              if(pd !=null && pd.isShowing()) {
+                  pd.dismiss();
+              }
+
+              if (success) {
+
+              }
+              else {
+
+              }
+          }
+
+          @Override
+          protected void onCancelled() {
+              CommonUtil.writeLog(null);
+              userLoginTask = null;
+
+              if(pd !=null && pd.isShowing()) {
+                  pd.dismiss();
+              }
+          }
+      }
+  */
+
+  /*
+Collections.sort(posts_sort, comparator);
+
+private final static Comparator<BeanPost> comparator = new Comparator<BeanPost>() {
+
+		private final Collator collator = Collator.getInstance();
+		@Override
+
+		public int compare(BeanPost bp1, BeanPost bp2) {
+			return collator.compare(Integer.toString(bp1.getPostct1_id()), Integer.toString(bp2.getPostct1_id()));
+		}
+	};
+  */
+
+  /*
+비트맵 resizing만할 경우
+bm = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), uri);
+
+int originHeight = bm.getHeight();
+int originWidth = bm.getWidth();
+
+bm = Bitmap.createScaledBitmap(bm, (originWidth * 360) / originHeight, 360, true);
+
+file = File.createTempFile("resizing", ".jpg");
+bm.compress(Bitmap.CompressFormat.JPEG, 100, new BufferedOutputStream(new FileOutputStream(file)));
+  */

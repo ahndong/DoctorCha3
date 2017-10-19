@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.infoline.doctorcha.core.view.RevealFrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rfl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.infoline.doctorcha.presentation.activity.MainOfShopsActivity">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/cl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/abl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:elevation="@dimen/space_0dp"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/tb"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_scrollFlags="scroll|snap|enterAlways"/>
+        </android.support.design.widget.AppBarLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ececec"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+        <!--1. fl_fragment에서 padding을 주게되면 샵 category별 fragment내의 SmartTabLayout과 AppBarLayout의 시각적 통합이 불가능해진다
+            2. 따라서 fragmentshopsforrepair.xml과 같은 메인 Category별 Fragment내에서 독립적인 padding을 부여해야만 한다
+            3. layout_behavior를 제거하면 AppBarLayout과의 관계가 단절될 뿐만아니라 호출되는 하위 Fragment내의 RecyclerView 자체가 정상적으로 나타나지 않는다
+            4. 또한, 호출되는 하위 Fragment내의 ViewPager에도 반드시 layout_behavior를 지정해주어야만 한다
+            5. ShopsActivity는 활설화 될 경우 기본적으로 Reveal Animation으로 presentation되므로 style에서 background가 투명으로 설정되어 있다.
+        -->
+
+        <!--
+        <LinearLayout
+            android:id="@+id/ll_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:orientation="horizontal"
+            android:layout_gravity="bottom"
+            android:gravity="bottom"
+            android:background="#00000000">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/iv_bm1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/x_mask_oval_topmenuicon_mini"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_home_white_24dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/iv_bm2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/x_mask_oval_topmenuicon_normal"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_publish_white_24dp"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/iv_bm3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/x_mask_oval_topmenuicon_mini"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_create_white_24dp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/menu_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#30000000"
+            android:visibility="invisible" >
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:layout_gravity="bottom"
+                android:layout_marginEnd="16dp">
+
+                <ImageView
+                    android:id="@+id/iv_bigimage"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical|end"
+                    android:background="@drawable/x_mask_oval_side_icon2"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_view_stream_white_24dp"/>
+
+                <ImageView
+                    android:id="@+id/iv_thumbnail"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical|end"
+                    android:background="@drawable/x_mask_oval_side_icon2"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_view_list_white_24dp"/>
+
+                <ImageView
+                    android:id="@+id/iv_staggered"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical|end"
+                    android:background="@drawable/x_mask_oval_side_icon2"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_view_quilt_white_24dp"/>
+
+            </FrameLayout>
+
+        </FrameLayout>
+        -->
+    </android.support.design.widget.CoordinatorLayout>
+</com.infoline.doctorcha.core.view.RevealFrameLayout>

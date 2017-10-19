@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/abl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="@dimen/space_0dp">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/tb"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_scrollFlags="scroll|snap|enterAlways"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="6dp"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="@dimen/label_width"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/child_margin"
+                android:textSize="@dimen/label_textsize"
+                android:textColor="@color/label_textcolor"
+                android:text="검색단어"
+                android:background="@drawable/x_bg_label"/>
+
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/child_margin"
+                android:inputType="textPersonName"
+                android:textSize="@dimen/editor_textsize"
+                android:textColor="@color/editor_textcolor"
+                android:background="@drawable/x_bg_editor"
+                android:hint="단어 또는 한글 초성 입력" />
+        </LinearLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="6dp"
+        android:paddingEnd="6dp"
+        android:background="@color/bg_grey_contentsroot"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+
+</android.support.design.widget.CoordinatorLayout>

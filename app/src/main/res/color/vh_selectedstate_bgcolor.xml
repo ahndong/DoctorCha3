@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true" android:color="#000000"/>
+    <item android:state_activated="true" android:color="#000000"/>
+    <item android:color="@android:color/holo_red_light"/>
+</selector>
+
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_focused="true" android:color="#bb0000ff"/>
+    <item android:state_pressed="true" android:state_enabled="false" android:color="#bb0000ff" />
+<item android:color="@android:color/transparent"/>
+    </selector>
+-->

@@ -1,0 +1,132 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="@dimen/label_width"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:textSize="@dimen/label_textsize"
+            android:textColor="@color/label_textcolor"
+            android:text="카테고리"
+            android:labelFor="@+id/sp_bmc"
+            android:background="@drawable/x_bg_label_search"/>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="2dp"
+            android:background="@drawable/x_bg_spinner">
+
+            <Spinner
+                android:id="@+id/sp_bmc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="@dimen/label_width"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:textSize="@dimen/label_textsize"
+            android:textColor="@color/label_textcolor"
+            android:text="소재지"
+            android:labelFor="@+id/et_ca"
+            android:background="@drawable/x_bg_label_search"/>
+
+        <EditText
+            android:id="@+id/et_ca"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:inputType="textPersonName"
+            android:textSize="@dimen/editor_textsize"
+            android:textColor="@color/editor_textcolor"
+            android:background="@drawable/x_bg_editor_search" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="@dimen/label_width"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:textSize="@dimen/label_textsize"
+            android:textColor="@color/label_textcolor"
+            android:text="업체명"
+            android:labelFor="@+id/et_cn"
+            android:background="@drawable/x_bg_label_search"/>
+
+        <EditText
+            android:id="@+id/et_cn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:inputType="textPersonName"
+            android:textSize="@dimen/editor_textsize"
+            android:textColor="@color/editor_textcolor"
+            android:background="@drawable/x_bg_editor_search" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="@dimen/label_width"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:textSize="@dimen/label_textsize"
+            android:textColor="@color/label_textcolor"
+            android:text="검색어"
+            android:labelFor="@+id/et_words"
+            android:background="@drawable/x_bg_label_search"/>
+
+        <EditText
+            android:id="@+id/et_words"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:inputType="textPersonName"
+            android:textSize="@dimen/editor_textsize"
+            android:textColor="@color/editor_textcolor"
+            android:background="@drawable/x_bg_editor_search" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_confirm"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="6dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:text="검색"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"
+        android:background="@drawable/x_mask_oval_searchbutton"/>
+</LinearLayout>

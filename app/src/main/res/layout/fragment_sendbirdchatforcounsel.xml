@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="4dp">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:background="@android:color/white"/>
+
+        <LinearLayout
+            android:id="@+id/ll_help_popup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:orientation="horizontal"
+            android:background="@android:color/holo_blue_bright">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:adjustViewBounds="true"
+                android:src="@drawable/introduce"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_message_popup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:orientation="horizontal"
+            android:background="@android:color/holo_blue_bright"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/iv_xx"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_gravity="center_vertical"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"/>
+
+            <TextView
+                android:id="@+id/tv_xx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_gravity="center_vertical"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_progress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_progress"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:padding="8dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="17sp"
+                android:textColor="#ffffff"
+                android:background="@drawable/x_circle_percent"/>
+        </FrameLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_bottom_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:padding="6dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:visibility="gone"
+        android:background="@color/colorPrimaryLight">
+
+        <TextView
+            android:id="@+id/tv_bm_select_channel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:text="채널선택"
+            android:textSize="15sp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/x_bg_bottommenu_roundsquare"/>
+
+        <TextView
+            android:id="@+id/tv_bm_invite_counsellor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:text="요원초대"
+            android:textSize="15sp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/x_bg_bottommenu_roundsquare"/>
+
+        <TextView
+            android:id="@+id/tv_bm_invite_partener"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:text="업체초대"
+            android:textSize="15sp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/x_bg_bottommenu_roundsquare"/>
+
+        <!--
+        <TextView
+            android:id="@+id/tv_bm_connect_partener"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:text="업체목록"
+            android:textSize="15sp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/x_bg_bottommenu_roundsquare"/>
+        -->
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="6dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/iv_upload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_upload_file" />
+
+        <EditText
+            android:id="@+id/et"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:hint="모든 질문에 신속히 답변하겠습니다"
+            android:maxLines="4"
+            android:textColor="#37434f"
+            android:textSize="15sp"
+            android:background="@drawable/x_mask_edittext" />
+
+        <TextView
+            android:id="@+id/tv_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="메뉴"
+            android:textSize="15sp"
+            android:textColor="#0000ff"
+            android:background="@drawable/x_bg_button"/>
+    </LinearLayout>
+</LinearLayout>

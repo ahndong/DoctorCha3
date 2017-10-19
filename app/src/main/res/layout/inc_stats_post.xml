@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:orientation="horizontal">
+
+	<!-- 조회수 -->
+	<TextView
+		android:id="@+id/tv_41"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+		android:textColor="@color/tc_grey_body"
+		android:textSize="@dimen/inc_stats_textsize"
+		android:text="12"/>
+
+	<!-- 댓글수 -->
+	<TextView
+		android:id="@+id/tv_42"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/inc_stats_marginstart"
+        android:layout_toEndOf="@+id/tv_41"
+        android:gravity="center_vertical"
+		android:textColor="@color/tc_grey_body"
+		android:textSize="@dimen/inc_stats_textsize"
+		android:text="17"/>
+
+	<!-- 추천수 -->
+	<TextView
+		android:id="@+id/tv_43"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/inc_stats_marginstart"
+        android:layout_toEndOf="@+id/tv_42"
+        android:gravity="center_vertical"
+		android:textColor="@color/tc_grey_body"
+		android:textSize="@dimen/inc_stats_textsize"
+		android:text="23"/>/>
+
+	<!-- 공유수 -->
+	<TextView
+		android:id="@+id/tv_44"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/inc_stats_marginstart"
+        android:layout_toEndOf="@+id/tv_43"
+        android:gravity="center_vertical"
+		android:textColor="@color/colorStatsText"
+		android:textSize="@dimen/inc_stats_textsize"
+		android:text="34"/>/>
+</RelativeLayout>

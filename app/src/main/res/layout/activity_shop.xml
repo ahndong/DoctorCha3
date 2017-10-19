@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.infoline.doctorcha.presentation.activity.ShopActivity"
+    android:id="@+id/cl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/abl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
+        app:elevation="0dp"
+        app:theme="@style/ToolBarStyle"
+        android:fitsSystemWindows="true">
+
+        <!-- CollapsingToolbarLayout에 반드시 layout_scrollFlags이 설정되어야 layout_collapseMode가 동작한다.-->
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/ctl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Title"
+            app:expandedTitleGravity="bottom"
+            app:expandedTitleMarginStart="12dp"
+            app:expandedTitleMarginBottom="12dp"
+            app:contentScrim="@color/csc_transparency"
+            android:fitsSystemWindows="true">
+            <!--
+            contentScrim : setContentScrimColor()
+            statusBarScrim : 굳이 변경할 필요가 없다
+
+            app:collapsedTitleGravity="center_horizontal"
+
+            app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Title"
+            이거 빼면 확장된 타이틀 폰트가 졸라 크다
+            -->
+
+            <!-- app:layout_collapseParallaxMultiplier="0.75" 설정값 관계없이 0.5로 작동하는 것 같다 -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_collapseMode="parallax"
+                app:layout_collapseParallaxMultiplier="0.1"
+                android:fitsSystemWindows="true">
+
+                <!--대문 사진-->
+                <ImageView
+                    android:id="@+id/iv_ifn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="180dp"
+                    android:adjustViewBounds="true"
+                    android:fitsSystemWindows="true"/>
+
+                <!--Thumbnail-->
+                <ImageView
+                    android:id="@+id/iv_itn"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_gravity="bottom|end"
+                    android:background="@drawable/x_mask_oval_thumb"/>
+            </FrameLayout>
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/tb"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_width="match_parent"
+                app:layout_collapseMode="pin" />
+            <!--app:layout_scrollFlags="scroll|snap|enterAlways"-->
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <com.ogaclejapan.smarttablayout.SmartTabLayout
+            android:id="@+id/stl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/lh_stl_text"
+            android:paddingStart="6dp"
+            android:background="?attr/colorPrimary"
+            app:stl_indicatorGravity="top"
+            app:stl_indicatorColor="#ffffff"
+            app:stl_indicatorThickness="1dp"
+            app:stl_indicatorInterpolation="smart"
+            app:stl_overlineColor="#25ffffff"
+            app:stl_overlineThickness="0.5dp"
+            app:stl_customTabTextLayoutId="@layout/stl_text_grey_white_evenly"
+            app:stl_dividerThickness="@dimen/space_0dp"
+            app:stl_underlineThickness="0dp" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/fab_margin"
+        android:layout_marginEnd="@dimen/fab_margin"
+        android:layout_gravity="bottom|end"
+        app:fabSize="normal"
+        app:backgroundTint="@color/colorAccent"
+        app:backgroundTintMode="src_over"
+        android:src="@drawable/ic_mode_edit_white_24dp" />
+</android.support.design.widget.CoordinatorLayout>

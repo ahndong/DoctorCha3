@@ -1,0 +1,192 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@drawable/bg_login3"
+    tools:context="com.infoline.doctorcha.presentation.activity.LoginActivity">
+
+    <!--backgroun image에 포함된 상단 타이틀을 커버할 mask bar-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:text="간편 회원 가입"
+        android:textColor="#ffffff"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:background="#10000000"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp"
+        android:orientation="vertical"
+        android:background="@drawable/x_login_roundsquare">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_ea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#85ffffff"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/et_ea"
+                android:maxLength="30"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/prompt_em"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                style="?android:textAppearanceSmall"
+                android:textColor="@android:color/white"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_hn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#85ffffff"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/et_hn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="20"
+                android:hint="@string/prompt_hn"
+                android:textColor="@android:color/white"
+                style="?android:textAppearanceSmall"
+                android:enabled="false"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_nm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#85ffffff"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/et_nm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="20"
+                android:hint="@string/prompt_nm"
+                android:inputType="text"
+                style="?android:textAppearanceSmall"
+                android:textColor="@android:color/white"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_nn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#85ffffff">
+
+            <EditText
+                android:id="@+id/et_nn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="20"
+                android:hint="@string/prompt_nn"
+                android:inputType="text"
+                style="?android:textAppearanceSmall"
+                android:textColor="@android:color/white"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_upw"
+            android:layout_width="match_parent"
+            android:textColorHint="#85ffffff"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/et_upw"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="20"
+                android:hint="@string/prompt_upw"
+                android:inputType="textPassword"
+                style="?android:textAppearanceSmall"
+                android:textColor="@android:color/white"/> <!--actionUnspecified-->
+        </android.support.design.widget.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/bt_confirm"
+                    style="?android:textAppearanceSmall"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="@string/action_confirm"
+                    android:textStyle="bold"/>
+
+                <Button
+                    android:id="@+id/bt_exit_app"
+                    style="?android:textAppearanceSmall"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="@string/action_app_exit"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <RadioGroup
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/textsize_13sp"
+                    android:layout_weight="1"
+                    android:textColor="#ffffff"
+                    android:text="로그인" />
+
+                <RadioButton
+                    android:id="@+id/rb_signin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/textsize_13sp"
+                    android:layout_weight="1"
+                    android:textColor="#ffffff"
+                    android:text="회원가입" />
+
+                <RadioButton
+                    android:id="@+id/rb_search_nn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:textSize="@dimen/textsize_13sp"
+                    android:layout_weight="1"
+                    android:text="닉네임찾기" />
+
+                <RadioButton
+                    android:id="@+id/rb_search_upw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:textSize="@dimen/textsize_13sp"
+                    android:layout_weight="1"
+                    android:text="비번찾기" />
+            </RadioGroup>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

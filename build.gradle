@@ -1,0 +1,47 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'com.google.gms:google-services:3.0.0'
+
+        /*
+        //for google play services
+        classpath 'com.google.gms:google-services:3.0.0'
+
+        1. app시작시 DynamiteModue, GoogleTagManager 등등 이상한 error, warning이 양껏 뜬다.
+        2. 카메라, 겔러리 intent 호출 후 촬영 혹은 선택시 앱이 죽거나 비정상적으로 동작한다.
+        3. compile 'com.google.android.gms:play-services:9.0.2'만 추가하여도 gcm은 정상적으로 동작한다.
+        4. getString(R.string.gcm_defaultSenderId)의 R.string.gcm_defaultSenderId를 사용치 못하는 것 말고는 현재로서 아무 문제없다.
+        */
+
+        //for butterknife, logansquare
+        //classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8' --> apt를 사용하면 databinding compile 오류 발생한다
+
+        //butterknife 8.8.1
+        classpath 'com.jakewharton:butterknife-gradle-plugin:8.8.1'
+
+        //for retrolambda
+       // classpath 'me.tatarka:gradle-retrolambda:3.2.2'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        //1. 아래 확인 후 제거할 것
+        maven { url "https://jitpack.io" } //PersistentCookieJar, ExpandableRecyclerView
+        maven { url 'http://devrepo.kakao.com:8088/nexus/content/groups/public/'}
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

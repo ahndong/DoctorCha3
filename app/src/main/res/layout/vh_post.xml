@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="12dp"
+    android:layout_marginBottom="1dp"
+    android:clickable="true"
+    android:background="@android:color/white"
+    android:foreground="?attr/selectableItemBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_vertical">
+
+        <!--제목 / 닉네임 / 조회 수 / 첫 번째 본문(옵션)-->
+        <TextView
+            android:id="@+id/tv_31"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="#848484"/>
+
+        <!--photo or video-->
+        <FrameLayout
+            android:id="@+id/fl_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <ImageView
+                android:id="@+id/iv_31"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"/>
+
+            <ImageView
+                android:id="@+id/iv_video_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@android:drawable/ic_media_play"
+                android:background="@drawable/x_mask_oval_sidemenuicon_normal"/>
+        </FrameLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:visibility="gone"
+                android:drawablePadding="4dp"
+                android:drawableStart="@drawable/ic_share_black_24dp" />
+
+            <TextView
+                android:id="@+id/tv_like"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:gravity="center_vertical"
+                android:visibility="gone"
+                android:layout_toStartOf="@+id/tv_repl"
+                android:drawablePadding="4dp"
+                android:drawableStart="@drawable/ic_favorite_border_black_24dp"/>
+
+            <TextView
+                android:id="@+id/tv_repl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:gravity="center_vertical"
+                android:drawablePadding="6dp"
+                android:drawableStart="@drawable/ic_comment_black_24dp" />
+        </RelativeLayout>
+    </LinearLayout>
+</FrameLayout>

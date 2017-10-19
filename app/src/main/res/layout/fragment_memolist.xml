@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <!--<import type="android.view.View"/>-->
+        <variable name="myBindEventHandlers" type="com.infoline.doctorcha.presentation.fragment.MemoListFragment.MyBindEventHandlers"/>
+    </data>
+
+    <FrameLayout
+        android:id="@+id/fl_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="6dp">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="2dp"/>
+
+        <!--
+        <TextView
+            android:id="@+id/tv_new"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_gravity="bottom|end"
+            android:gravity="center"
+            android:text="새글"
+            android:textSize="15sp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/x_mask_oval_maincategory"/>
+        -->
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/fab_margin"
+            android:layout_marginEnd="@dimen/fab_margin"
+            android:layout_gravity="bottom|end"
+            app:fabSize="normal"
+            app:backgroundTint="@color/colorAccent"
+            app:backgroundTintMode="src_over"
+            android:src="@drawable/ic_add_white_24dp"
+            android:onClick="@{myBindEventHandlers::onBindClick}"/>
+    </FrameLayout>
+</layout>

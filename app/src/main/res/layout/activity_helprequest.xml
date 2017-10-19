@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:fitsSystemWindows="true">
+
+    <ViewFlipper
+        android:id="@+id/vf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+
+        <ImageView
+            android:id="@+id/iv_11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"/>
+
+        <ImageView
+            android:id="@+id/iv_12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"/>
+
+        <ImageView
+            android:id="@+id/iv_13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"/>
+
+        <ImageView
+            android:id="@+id/iv_14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"/>
+    </ViewFlipper>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
+
+        <include layout="@layout/inc_photo_picker"
+            android:id="@+id/picker1"/>
+
+        <include layout="@layout/inc_photo_picker"
+            android:id="@+id/picker2"/>
+
+        <include layout="@layout/inc_photo_picker"
+            android:id="@+id/picker3"/>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/et_tt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="15sp"
+        android:background="@drawable/x_mask_edittext"
+        android:hint="제목을 간략히 입력해 주세요"
+        android:textColorHint="#aaaaaa"
+        android:textColor="@android:color/black">
+    </EditText>
+
+    <EditText
+        android:id="@+id/et_bd"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:textSize="15sp"
+        android:background="@drawable/x_mask_edittext"
+        android:hint="질문내용을 가능한 상세히 입력해 주세요"
+        android:textColorHint="#aaaaaa"
+        android:textColor="@android:color/black">
+    </EditText>
+    <!--android:background="@null"
+    android:scrollbars="vertical" : scroll을 설정하니깐 keyboard가 자동으로 뜬다
+    -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="4dp"
+        android:layout_marginTop="4dp">
+        <Button
+            android:id="@+id/bt_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="2dp"
+            android:text="질문 보내기"
+            android:background="#284B67"/>
+
+        <Button
+            android:id="@+id/bt_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:text="닥터차 시작"
+            android:background="#284B67"/>
+    </LinearLayout>
+</LinearLayout>

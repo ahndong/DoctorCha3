@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1048233077547",
+    "firebase_url": "https://doctorcha-ceaa1.firebaseio.com",
+    "project_id": "doctorcha-ceaa1",
+    "storage_bucket": "doctorcha-ceaa1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1048233077547:android:ad310dc9c3ae175a",
+        "android_client_info": {
+          "package_name": "com.infoline.doctorcha"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1048233077547-g1mpi0spis0n3scccb8j0llroq5ua19p.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "1048233077547-earhjr5j8lqopso11e0u80418vv7icdj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUNRaKXfYeZki2IomwYN468anapNv3Gi4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,53 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_vertical" >
+
+    <!--게시판 icon + 게시판명-->
+    <TextView
+        android:id="@+id/tv_board"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:textSize="14sp"
+        android:textColor="@android:color/holo_blue_light"
+        android:drawablePadding="6dp"
+        android:drawableStart="@drawable/ic_content_paste_white_24dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="8dp">
+
+        <!--글쓴이 profile-->
+        <ImageView
+            android:id="@+id/iv_profile"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:background="@drawable/x_bg_oval_profile"/>
+        <!--@drawable/x_oval_transparent_outline
+        x_bg_oval_profile-->
+
+        <!--닉네임 + 작성일시 + 조회수-->
+        <TextView
+            android:id="@+id/tv_nn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_tt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="15sp"
+        android:textStyle="bold"/>
+</LinearLayout>

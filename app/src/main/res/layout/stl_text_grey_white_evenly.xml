@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tvStandard_text"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:paddingStart="6dp"
+    android:paddingEnd="6dp"
+    android:gravity="center"
+    android:background="?android:selectableItemBackground"
+    android:textColor="@drawable/x_tc_stl_white_grey"
+    android:textSize="16sp" />
+
+<!-- android:textStyle="bold"-->
+
+<!--
+android:fontFamily="sans-serif"           // roboto regular
+android:fontFamily="sans-serif-light"     // roboto light
+android:fontFamily="sans-serif-condensed" // roboto condensed
+android:fontFamily="sans-serif-thin"      // roboto thin (android 4.2)
+android:fontFamily="sans-serif-medium"    // roboto medium (android 5.0)
+
+Roboto regular
+Roboto italic
+Roboto bold
+Roboto bold italic
+Roboto-Light
+Roboto-Light italic
+Roboto-Thin
+Roboto-Thin italic
+Roboto-Condensed
+Roboto-Condensed italic
+Roboto-Condensed bold
+Roboto-Condensed bold italic
+Roboto-Medium
+Roboto-Medium italic
+-->

@@ -1,0 +1,16 @@
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/action_channellist"
+        android:icon="@drawable/ic_people_white_32dp"
+        android:title="상담 챈널 선택"
+        android:orderInCategory="100"
+        app:showAsAction="always" />
+
+    <item android:id="@+id/action_shoplist"
+        android:icon="@drawable/ic_store_mall_directory_white_32dp"
+        android:title="주변 업체 탐색"
+        android:orderInCategory="101"
+        app:showAsAction="always" />
+</menu>

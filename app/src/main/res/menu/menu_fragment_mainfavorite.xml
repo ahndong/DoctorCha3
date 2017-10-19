@@ -1,0 +1,10 @@
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/action_counsell"
+        android:icon="@drawable/ic_chat_white_24dp"
+        android:title="닥터차 라이브 상담"
+        android:orderInCategory="100"
+        app:showAsAction="always" />
+</menu>

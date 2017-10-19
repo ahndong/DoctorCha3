@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--확정된 것-->
+    <color name="colorPrimary">#4392fe</color> <!--이선미 : 4392fe--> <!--SmartTabLayout : #364758-->
+    <!--<color name="colorPrimaryLight">#8fbefe</color>--> <!--이선미 : 4392fe--> <!--SmartTabLayout : #364758-->
+    <color name="colorPrimaryLight">#43a2fe</color>
+    <color name="colorPrimaryDark">#2979e7</color> <!--이선미 #2979e7-->
+    <color name="colorAccent">#FF4081</color>
+
+
+
+    <!---->
+
+    <color name="colorStatsText">#848484</color>
+    <color name="colorTextOverlay">#45000000</color>
+    <color name="icon_enabled">#0000ff</color>
+    <color name="icon_disabled">#ffffff</color>
+
+    <!-- Common colors -->
+    <color name="list_choice_normal_bg_light">#00000000</color><!--#ffff-->
+    <color name="list_choice_pressed_bg_light">#cc000000</color> <!--45ff0000-->
+    <color name="csc_transparency">#40000000</color> <!--ContentScrimColor 반투명-->
+    <color name="sbs_transparency">#65000000</color> <!--statusBarScrim 반투명-->
+
+    <color name="tc_black_soft">#373737</color> <!--header, title중 black이 부담스렁ㄴ 경우 사용-->
+    <color name="tc_blue_highligh">#6767ff</color> <!---->
+    <color name="tc_grey_body">#848484</color> <!--살짝 Black이 묻어나는 회색 : title이 아닌 비강조 본문 또는 통계 수치표현에 사용 (666666)-->
+
+    <color name="bg_grey_contentsroot">#dbdbdb</color> <!--Contents여역 전체를 activity 또는 fragment 또는 ViewPager 또는 RecyclerView의 background Color-->
+
+
+    <!--cardView-->
+    <color name="cgb_cv">#452b72</color> <!--CardView BackgroundColor : 옅은 회색-->
+    <color name="tc_ab_cv">#8e90ec</color> <!--CardView TextColor Accent-blue : 옅은 파란색-->
+    <color name="tc_ar_cv">#ff0040</color> <!--CardView TextColor Accent-Red : 짙은 주홍색-->
+
+    <!--Input Form-->
+    <color name="label_textcolor">@android:color/holo_blue_light</color> <!--#848484-->
+    <color name="editor_textcolor">#000000</color>
+    <color name="subtitle_textcolor">#848484</color>
+
+    <color name="subtitle_bgcolor">#e7e7ff</color>
+    <color name="child_bgcolor">@android:color/white</color>
+
+    <color name="select_odd_backcolor">@android:color/white</color>
+    <color name="select_even_backcolor">#d7e4f7</color>
+</resources>
+
+
+    <!--
+    <?xml version="1.0" encoding="utf-8"?>
+    <resources>
+        <color name="colorPrimary">#3F51B5</color>
+        <color name="colorPrimaryDark">#303F9F</color>
+        <color name="colorAccent">#FF4081</color>
+    </resources>
+    -->

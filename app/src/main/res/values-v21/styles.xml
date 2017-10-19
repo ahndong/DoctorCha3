@@ -1,0 +1,47 @@
+<resources>>
+    <style name="AppTheme.NoActionBar_Main">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <!--
+        1. CoordinatorLayout fitsSystemWindows="true"로 설정될 경우만 의미가 있다.
+        2. 처음엔 colorPrimary가 지정하는 color가 먹지만
+           scroll tag에 AppBar가 위로 스크롤 될 경우 AppBar가 statusBar 영역을 침범하는 순간부터
+           statusBarColor가 먹기 시작한다.
+        -->
+
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <!--<item name="android:windowBackground">@android:color/black</item>-->
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.TransParent">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <!--<item name="android:colorBackground">@android:color/holo_red_light</item>  :  windowBackground와 차이점 미발견-->
+        <!--투명 Activity 구현을 위해서는 반드시 아래 두 항목이 함께 정의되어야 한다.-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar_TransParentStatusBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <!--아무 차이 없다. 있던 없던 Lollipop 이상에서는 makeSceneTransitionAnimation 잘 동작한다
+        <item name="android:windowContentTransitions">true</item>
+        -->
+
+        <!--기본 color와 collapse된 이후의 칼라를 굳이 변경할 필요가 없다-->
+        <item name="colorPrimaryDark">@color/sbs_transparency</item>
+    </style>
+</resources>

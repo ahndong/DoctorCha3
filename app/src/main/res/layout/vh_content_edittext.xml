@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EditText
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/et_31"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="2dp"
+    android:hint="내용"
+    android:maxLength="1000"
+    android:textSize="@dimen/editor_textsize"
+    android:textColor="@color/editor_textcolor"
+    android:background="@drawable/x_bg_label"/>

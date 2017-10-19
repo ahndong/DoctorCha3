@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_main1"
+            android:icon="@drawable/ic_chat_black_24dp"
+            android:title="닥터차 라이브 상담" />
+
+        <item
+            android:id="@+id/nav_main2"
+            android:icon="@drawable/ic_store_mall_directory_black_32dp"
+            android:title="협력업체 탐색" />
+
+        <!--
+        <item
+            android:id="@+id/nav_main3"
+            android:icon="@drawable/ic_subscriptions_black_24dp"
+            android:title="주변업체 찾아보기" />
+
+        <item
+            android:id="@+id/nav_main4"
+            android:icon="@drawable/ic_subscriptions_black_24dp"
+            android:title="가칭 콘텐츠 둘러보기" />
+
+        <item
+            android:id="@+id/nav_main3"
+            android:icon="@drawable/ic_subscriptions_black_24dp"
+            android:title="중고차 팔기 역경매, 중공차 역경매, 수리의뢰 역경매" />
+        -->
+    </group>
+
+    <item android:title="Information">
+        <menu>
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/ic_power_settings_new_black_24dp"
+                android:title="로그아웃" />
+
+            <item
+                android:id="@+id/nav_myblog"
+                android:icon="@drawable/ic_face_black_24dp"
+                android:title="내 블로그" />
+
+            <item
+                android:id="@+id/nav_carinfo"
+                android:icon="@drawable/ic_directions_car_black_24dp"
+                android:title="차량정보" />
+        </menu>
+    </item>
+
+    <item android:title="Communication">
+        <menu>
+            <!--
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_share_black_24dp"
+                android:title="닥터차 공유하기" />
+            -->
+
+            <item
+                android:id="@+id/nav_youtube"
+                android:icon="@drawable/ic_share_black_24dp"
+                android:title="유튜브 동영상 보기" />
+        </menu>
+    </item>
+
+</menu>

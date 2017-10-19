@@ -1,0 +1,103 @@
+<resources>
+    <!--
+    common attribute brief define
+    1. ms == marginStart, me == marginEnd, mt == marginTop, mb == marginBottom
+    2. ps == paddingStart, pe == paddingEnd, pt == paddingTop, pb == paddingBottom
+       pse == paddingStart와 paddingEnd가 동일할 경우 사용(대부분 동일하다)
+    3. lw == layout_width
+    3. lh == layout_height
+    3. lwh == layout_width, layout_height가 동일할 경우 사용(대부분 동일하다)
+    4. ts == textSize
+    4. tc == textColor
+    
+    -->
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <!---->
+    <dimen name="inc_stats_marginstart">6dp</dimen>
+    <dimen name="inc_stats_textsize">13sp</dimen>
+
+
+    <!--Common View-->
+    <dimen name="lwh_iv_thumb">66dp</dimen>
+
+    <!--SmartTabLayout
+        1, it ==
+        -->
+    <!--common default-->
+    <dimen name="lh_stl_indecator">6dp</dimen>
+    <dimen name="lh_stl_text">40dp</dimen>
+    <dimen name="lh_stl_icon">40dp</dimen>
+
+    <dimen name="it_stl">3dp</dimen> <!--it : stl_indicatorThickness-->
+    <dimen name="ts_stl">16sp</dimen>
+
+    <!--RecyclerView-->
+    <!--common default-->
+    <dimen name="pse_rv">6dp</dimen>
+
+    <!--CardView
+    1, cl == acardElevation
+    2. ccr == cardCornerRadius
+    3, cl == acardElevation    
+    -->
+    <!--common default-->
+    <dimen name="ccr_cv">3dp</dimen>
+    <dimen name="cl_cv">2dp</dimen>
+    <dimen name="mt_cv">8dp</dimen>
+    <dimen name="ms_cv">6dp</dimen>
+
+    <!--<dimen name="ccr_cd_thumbnail">4dp</dimen> : ccr_cd_default와는 독립적인 값을 사용하고 싶을 경우 사용할 것-->
+    <!--=====CardView End========================================================================-->
+
+    <dimen name="space_0dp">0dp</dimen>
+    <dimen name="space_1dp">1dp</dimen>
+    <dimen name="space_2dp">2dp</dimen>
+    <dimen name="space_3dp">3dp</dimen>
+    <dimen name="space_4dp">4dp</dimen>
+    <dimen name="space_5dp">5dp</dimen>
+    <dimen name="space_6dp">6dp</dimen>
+    <dimen name="space_7dp">7dp</dimen>
+    <dimen name="space_8dp">8dp</dimen>
+    <dimen name="space_9dp">9dp</dimen>
+    <dimen name="space_10dp">10dp</dimen>
+    <dimen name="space_11dp">11dp</dimen>
+    <dimen name="space_12dp">12dp</dimen>
+    <dimen name="space_13dp">13dp</dimen>
+    <dimen name="space_14dp">14dp</dimen>
+    <dimen name="space_15dp">15dp</dimen>
+    <dimen name="space_16dp">16dp</dimen>
+    <dimen name="space_48dp">48dp</dimen>
+
+    <dimen name="textsize_11sp">11sp</dimen>
+    <dimen name="textsize_12sp">12sp</dimen>
+    <dimen name="textsize_13sp">13sp</dimen>
+    <dimen name="textsize_14sp">14sp</dimen>
+    <dimen name="textsize_15sp">15sp</dimen>
+    <dimen name="textsize_16sp">16sp</dimen>
+
+    <dimen name="stl_default_dividerThickness">0dp</dimen>
+    <dimen name="stl_default_underlineThickness">0dp</dimen>
+
+    <!--Input Form-->
+    <dimen name="label_width">66dp</dimen>
+    <dimen name="label_textsize">14sp</dimen>
+    <dimen name="editor_textsize">14sp</dimen>
+    <dimen name="subtitle_textsize">14sp</dimen>
+
+    <dimen name="child_margin">1dp</dimen>
+    <dimen name="p_h_et">4dp</dimen> <!--padding horizontal EditText-->
+    <dimen name="p_v_et">2dp</dimen> <!--padding horizontal EditText-->
+</resources>
+
+    <!--
+<resources>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+</resources>
+-->

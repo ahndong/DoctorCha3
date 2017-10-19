@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:foreground="?attr/selectableItemBackground">
+
+	<TextView
+		android:id="@+id/tv_31"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:padding="6dp"
+		android:layout_marginTop="6dp"
+		android:gravity="center_vertical"
+		android:textColor="@android:color/black"
+		android:textSize="@dimen/textsize_15sp"/>
+</FrameLayout>

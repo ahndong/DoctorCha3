@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        android:orientation="vertical">
+
+        <!--차량 기본정보-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:textSize="@dimen/subtitle_textsize"
+            android:textColor="@color/subtitle_textcolor"
+            android:text="차량 기본정보"
+            android:background="@drawable/x_bg_subtitle"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="@dimen/label_width"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/child_margin"
+                android:textSize="@dimen/label_textsize"
+                android:textColor="@color/label_textcolor"
+                android:text="차종"
+                android:labelFor="@+id/et_cdk"
+                android:background="@drawable/x_bg_label"/>
+
+            <EditText
+                android:id="@+id/et_cdk"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/child_margin"
+                android:inputType="textPersonName"
+                android:textSize="@dimen/editor_textsize"
+                android:textColor="@color/editor_textcolor"
+                android:background="@drawable/x_bg_editor" />
+
+            <ImageView
+                android:id="@+id/iv_cdk_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_menu_search"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="@dimen/label_width"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/child_margin"
+                android:textSize="@dimen/label_textsize"
+                android:textColor="@color/label_textcolor"
+                android:text="배기량"
+                android:background="@drawable/x_bg_label"/>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/child_margin">
+
+                <EditText
+                    android:id="@+id/et_ccc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textSize="@dimen/editor_textsize"
+                    android:textColor="@color/editor_textcolor"
+                    android:background="@drawable/x_bg_editor" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:layout_gravity="center_vertical|end"
+                    android:textSize="@dimen/label_textsize"
+                    android:textColor="#0000ff"
+                    android:text="cc" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="@dimen/label_width"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/child_margin"
+                android:textSize="@dimen/label_textsize"
+                android:textColor="@color/label_textcolor"
+                android:text="등급"
+                android:background="@drawable/x_bg_label"/>
+
+            <EditText
+                android:id="@+id/et_cdg"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/child_margin"
+                android:inputType="textPersonName"
+                android:textSize="@dimen/editor_textsize"
+                android:textColor="@color/editor_textcolor"
+                android:background="@drawable/x_bg_editor" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="@dimen/label_width"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/child_margin"
+                android:textSize="@dimen/label_textsize"
+                android:textColor="@color/label_textcolor"
+                android:text="차량번호"
+                android:background="@drawable/x_bg_label"/>
+
+            <EditText
+                android:id="@+id/et_crn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/child_margin"
+                android:inputType="textPersonName"
+                android:textSize="@dimen/editor_textsize"
+                android:textColor="@color/editor_textcolor"
+                android:background="@drawable/x_bg_editor" />
+
+            <TextView
+                android:layout_width="@dimen/label_width"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/child_margin"
+                android:textSize="@dimen/label_textsize"
+                android:textColor="@color/label_textcolor"
+                android:text="등록일자"
+                android:background="@drawable/x_bg_label"/>
+
+            <EditText
+                android:id="@+id/et_crd"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/child_margin"
+                android:inputType="number"
+                android:hint="20170101"
+                android:textSize="@dimen/editor_textsize"
+                android:textColor="@color/editor_textcolor"
+                android:background="@drawable/x_bg_editor" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="@dimen/label_width"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/child_margin"
+                android:textSize="@dimen/label_textsize"
+                android:textColor="@color/label_textcolor"
+                android:text="연식"
+                android:background="@drawable/x_bg_label"/>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/child_margin">
+
+                <EditText
+                    android:id="@+id/et_coy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textSize="@dimen/editor_textsize"
+                    android:textColor="@color/editor_textcolor"
+                    android:background="@drawable/x_bg_editor" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:layout_gravity="center_vertical|end"
+                    android:textSize="@dimen/label_textsize"
+                    android:textColor="#0000ff"
+                    android:text="년" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="@dimen/label_width"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/child_margin"
+                android:textSize="@dimen/label_textsize"
+                android:textColor="@color/label_textcolor"
+                android:text="주행거리"
+                android:background="@drawable/x_bg_label"/>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/child_margin">
+
+                <EditText
+                    android:id="@+id/et_ckm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textSize="@dimen/editor_textsize"
+                    android:textColor="@color/editor_textcolor"
+                    android:background="@drawable/x_bg_editor" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:layout_gravity="center_vertical|end"
+                    android:textSize="@dimen/label_textsize"
+                    android:textColor="#0000ff"
+                    android:text="km" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="@dimen/label_width"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/child_margin"
+                android:textSize="@dimen/label_textsize"
+                android:textColor="@color/label_textcolor"
+                android:text="변속기"
+                android:background="@drawable/x_bg_label"/>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/child_margin"
+                android:background="@drawable/x_bg_spinner">
+
+                <Spinner
+                    android:id="@+id/sp_ctk"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="@dimen/label_width"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/child_margin"
+                android:textSize="@dimen/label_textsize"
+                android:textColor="@color/label_textcolor"
+                android:text="연료"
+                android:background="@drawable/x_bg_label"/>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/child_margin"
+                android:background="@drawable/x_bg_spinner">
+
+                <Spinner
+                    android:id="@+id/sp_cpk"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="@dimen/label_width"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/child_margin"
+                android:textSize="@dimen/label_textsize"
+                android:textColor="@color/label_textcolor"
+                android:text="판매지역"
+                android:labelFor="@+id/et_cdk"
+                android:background="@drawable/x_bg_label"/>
+
+            <EditText
+                android:id="@+id/et_car"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/child_margin"
+                android:inputType="textPersonName"
+                android:textSize="@dimen/editor_textsize"
+                android:textColor="@color/editor_textcolor"
+                android:background="@drawable/x_bg_editor" />
+
+            <ImageView
+                android:id="@+id/iv_car_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_menu_compass"/>
+        </LinearLayout>
+
+        <!--차량 옵션선택-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="2dp"
+            android:textSize="@dimen/subtitle_textsize"
+            android:textColor="@color/subtitle_textcolor"
+            android:text="차량 옵션선택"
+            android:background="@drawable/x_bg_subtitle"/>
+
+        <!--차량 옵션정보-->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_caroptions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!--차량 추가정보-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="2dp"
+            android:textSize="@dimen/subtitle_textsize"
+            android:textColor="@color/subtitle_textcolor"
+            android:text="차량 추가정보"
+            android:background="@drawable/x_bg_subtitle"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="@dimen/label_width"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/child_margin"
+                android:textSize="@dimen/label_textsize"
+                android:textColor="@color/label_textcolor"
+                android:text="사고여부"
+                android:background="@drawable/x_bg_label"/>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/child_margin"
+                android:background="@drawable/x_bg_spinner">
+
+                <Spinner
+                    android:id="@+id/sp_cak"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="@dimen/label_width"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/child_margin"
+                android:textSize="@dimen/label_textsize"
+                android:textColor="@color/label_textcolor"
+                android:text="침수여부"
+                android:background="@drawable/x_bg_label"/>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/child_margin"
+                android:background="@drawable/x_bg_spinner">
+
+                <Spinner
+                    android:id="@+id/sp_cwk"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="@dimen/label_width"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/child_margin"
+                android:textSize="@dimen/label_textsize"
+                android:textColor="@color/label_textcolor"
+                android:text="기타사항"
+                android:background="@drawable/x_bg_label"/>
+
+            <EditText
+                android:id="@+id/et_cem"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/child_margin"
+                android:hint="사고이력 등 특이사할"
+                android:textSize="@dimen/editor_textsize"
+                android:textColor="@color/editor_textcolor"
+                android:background="@drawable/x_bg_editor" />
+        </LinearLayout>
+
+        <!--차량 사진첨부-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="2dp"
+            android:textSize="@dimen/subtitle_textsize"
+            android:textColor="@color/subtitle_textcolor"
+            android:text="차량 사진첨부"
+            android:background="@drawable/x_bg_subtitle"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_carphotos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_confirm"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="12dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:text="저장"
+            android:textSize="15sp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/x_mask_oval_maincategory"/>
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

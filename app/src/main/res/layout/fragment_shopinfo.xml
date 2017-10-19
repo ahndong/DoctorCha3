@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bg_grey_contentsroot">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_header_standard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0.5dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="기본 정보"
+            android:textSize="15sp"
+            android:textColor="#373737"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center_vertical"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:background="@android:color/white">
+
+            <EditText
+                android:id="@+id/et_cn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:hint="상호 또는 블로그 명칭 입력"
+                android:maxLength="30"
+                android:textColor="@color/tc_blue_highligh"
+                android:textSize="15sp"
+                android:focusable="false"
+                android:background="?android:attr/selectableItemBackground" />
+
+            <TextView
+                android:id="@+id/tv_bmc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="15sp"/>
+
+            <EditText
+                android:id="@+id/et_ht"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical"
+                android:hint="해시태그 입력 : #전문분야#관심사"
+                android:maxLength="255"
+                android:textColor="@color/tc_blue_highligh"
+                android:textSize="15sp"
+                android:focusable="false"
+                android:background="?android:attr/selectableItemBackground" />
+
+            <EditText
+                android:id="@+id/et_ca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical"
+                android:hint="주소 입력"
+                android:maxLength="100"
+                android:textColor="@color/tc_blue_highligh"
+                android:textSize="15sp"
+                android:focusable="false"
+                android:background="?android:attr/selectableItemBackground" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/et_tn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:maxLength="20"
+                    android:inputType="number"
+                    android:hint="전화번호 입력 : 000-111-2222"
+                    android:drawableEnd="@drawable/ic_phone_blue_24dp"
+                    android:drawablePadding="4dp"
+                    android:textColor="@color/tc_black_soft"
+                    android:textSize="15sp"
+                    android:focusable="false"
+                    android:background="?android:attr/selectableItemBackground" />
+
+                <!--
+                <TextView
+                    android:id="@+id/tv_hn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_marginStart="16dp"
+                    android:drawableEnd="@drawable/ic_phone_blue_24dp"
+                    android:drawablePadding="4dp"
+                    android:textColor="@color/tc_black_soft"
+                    android:textSize="15sp"
+                    android:background="?android:attr/selectableItemBackground" />
+                -->
+            </LinearLayout>
+
+            <!--조회수, 댓글수, 좋아요수, 공유수-->
+            <!--
+            <include layout="@layout/inc_stats_action"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            -->
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_header_bi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0.5dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="주인장 인사말"
+            android:textSize="15sp"
+            android:textColor="#373737"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center_vertical"/>
+        <!--android:background="#efefef"-->
+
+        <EditText
+            android:id="@+id/et_bi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0.5dp"
+            android:padding="12dp"
+            android:minLines="3"
+            android:hint="작성된 인사말이 없습니다"
+            android:maxLength="1000"
+            android:textSize="14sp"
+            android:background="@android:color/white"/>
+
+        <TextView
+            android:id="@+id/tv_header_post"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0.5dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="소개 포스팅"
+            android:textSize="15sp"
+            android:textColor="#373737"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center_vertical"/>
+        <!--android:drawableTint="#ff0000" : api 23부터 지원-->
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_post"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0.5dp"
+            android:background="@android:color/white"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0.5dp"
+            android:paddingStart="12dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="위치"
+            android:textSize="15sp"
+            android:textColor="#373737"
+            android:background="#efefef"/>
+
+        <!--
+        <fragment
+            android:id="@+id/mf"
+            android:name="com.google.android.gms.maps.MapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginTop="1dp"
+            map:cameraZoom="16"
+            map:mapType="normal"
+            map:liteMode="true"/>
+        -->
+
+        <FrameLayout
+            android:id="@+id/fl_map"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginTop="1dp"
+            android:background="@android:color/white" />
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

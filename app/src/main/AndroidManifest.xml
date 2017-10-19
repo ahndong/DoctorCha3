@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.infoline.doctorcha">
+
+    <!--
+    sendbird infomation
+    signin : iamkan@empal.com , iam90tan
+    application id : C966BA6E-143D-4153-9249-7ADBA37C93FC
+    api token : 4615309dfea209b3350e15ad4141e78e458dba96
+    -->
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <!-- 23 : 저장공간 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!-- To auto-complete the email text field in the login form with the user's emails
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    -->
+
+    <!--
+    Server API Key : AIzaSyArvgZqAJkMMokOp0K6Vk5yTL_tJsyTuwM
+    Sender ID : 1048233077547
+    -->
+    <!-- android:name=".presentation.MainApp" -->
+    <application
+        android:name=".presentation.MainApp"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".presentation.activity.SplashActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <intent-filter>
+                <!-- 사용자의 친구가 카톡으로 결과를 받고 앱으로 이동 버튼을 누르는 경우 -->
+                <!-- 실행될 Activity 를 설정하는 부분 -->
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="@string/kakao_scheme"
+                    android:host="@string/kakaolink_host" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".presentation.activity.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:windowSoftInputMode="stateHidden">
+
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+                <action android:name="android.intent.action.SEND" />
+            </intent-filter>
+            -->
+        </activity>
+
+        <!--android:windowSoftInputMode="stateAlwaysHidden|adjustResize"-->
+
+        <activity
+            android:name=".presentation.activity.SearchPanelActivity"
+            android:theme="@style/AppTheme.TransParent"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|screenSize">
+        </activity>
+
+        <activity
+            android:name=".presentation.activity.MainOfShopsActivity"
+            android:theme="@style/AppTheme.TransParent"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|screenSize">
+        </activity>
+
+        <activity
+            android:name=".presentation.activity.ShopActivity"
+            android:theme="@style/AppTheme.NoActionBar_TransParentStatusBar"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden|screenSize">
+        </activity>
+
+        <activity
+            android:name=".presentation.activity.SimpleSelectActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden|screenSize">
+        </activity>
+
+        <activity
+            android:name=".presentation.activity.FragmentContainerActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:windowSoftInputMode="stateHidden">
+        </activity>
+
+        <activity
+            android:name=".presentation.activity.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden|screenSize">
+        </activity>
+
+        <activity
+            android:name=".presentation.activity.YoutubePlayListActivity"
+            android:label="@string/tt_LocationActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden|screenSize">>
+        </activity>
+
+        <activity
+            android:name=".presentation.activity.MapsActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+
+        <service android:name=".gcm.MyGcmListenerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".gcm.MyInstanceIDListenerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <!-- gps start -->
+        <service
+            android:name=".core.gps.FetchAddressIntentService"
+            android:exported="false" />
+        <!-- gps end -->
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAUNRaKXfYeZki2IomwYN468anapNv3Gi4" />
+
+        <!-- 카카오 링크 API 키 -->
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="@string/kakao_app_key" />
+
+        <!-- Set custom default icon. This is used when no icon is set for incoming notification messages. See README(https://goo.gl/l4GJaQ) for more. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_launcher_gcm" />
+
+        <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming notification message. See README(https://goo.gl/6BKBk7) for more. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+
+        <!--Nougat File Sharing-->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.infoline.doctorcha.provider"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+</manifest>

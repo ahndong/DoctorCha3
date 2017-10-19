@@ -1,0 +1,112 @@
+<resources>
+    <!--
+    theme/material관련 참조 site : http://androidhuman.com/561
+    -->
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:windowDisablePreview">true</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <!--white로 할 경우 playservice upgrade등 device차원의 popup message가 뜰 경우 바탕이 white라 text가 안보인다-->
+        <!--<item name="android:textColorPrimary">@android:color/white</item>-->
+
+        <!--1. 확인된 적용범위 : Spinner의 dropdown button color, drawer button color, checkbox outline color / 선택시 fillcolor-->
+        <!--<item name="colorControlNormal">@android:color/holo_red_light</item>-->
+        <!--<item name="colorControlHighlight">#00CC55</item>--> <!--컨트롤러를 터치하거나 선택되었을 때 표시할 색상 : cardview확인-->
+
+        <!--<item name="android:textColor">@android:color/black</item>-->
+
+        <!--API 21이상만 지원-->
+        <!--<item name="android:navigationBarColor">#00CC55</item>-->
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <!--<style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />-->
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppTheme.NoActionBar_Main">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar_TransParentStatusBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <!--기본 color와 collapse된 이후의 칼라를 굳이 변경할 필요가 없다-->
+        <item name="colorPrimaryDark">@color/sbs_transparency</item>
+    </style>
+
+    <style name="AppTheme.TransParent">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <!--기능 미파악-->
+        <!--<item name="android:windowDrawsSystemBarBackgrounds">true</item>-->
+
+        <!--<item name="android:colorBackground">@android:color/holo_red_light</item>  :  windowBackground와 차이점 미발견-->
+        <!--투명 Activity 구현을 위해서는 반드시 아래 두 항목이 함께 정의되어야 한다.-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="AppTheme.TransParent_TransParentStatusBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <!--기능 미파악-->
+        <!--<item name="android:windowDrawsSystemBarBackgrounds">true</item>-->
+
+        <!--<item name="android:colorBackground">@android:color/holo_red_light</item>  :  windowBackground와 차이점 미발견-->
+        <!--투명 Activity 구현을 위해서는 반드시 아래 두 항목이 함께 정의되어야 한다.-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="PauseDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowAnimationStyle">@style/PauseDialogAnimation</item>
+        <!--
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        -->
+    </style>
+
+    <style name="PauseDialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/dropdown</item><!--@android:anim/slide_in_left-->
+        <item name="android:windowExitAnimation">@android:anim/slide_out_right</item>
+    </style>
+
+    <style name="ToolBarStyle" parent="Theme.AppCompat">
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
+        <item name="actionMenuTextColor">@android:color/white</item>
+    </style>
+</resources>
+
+<!--
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+</resources>
+-->

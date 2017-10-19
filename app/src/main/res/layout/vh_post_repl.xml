@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="1dp"
+    android:foreground="?attr/selectableItemBackground"
+    android:clickable="true"
+    cardview:contentPadding="@dimen/space_0dp"
+    cardview:cardElevation="0dp"
+    cardview:cardCornerRadius="0dp"
+    cardview:cardPreventCornerOverlap="false"
+    cardview:cardUseCompatPadding="false"
+    android:background="#ffffff">
+    <!--android:focusableInTouchMode="true"
+    setActivated(true)로 단일 focus 구현 - selectableItemBackground 적용
+    -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:padding="12dp" >
+
+        <!--닉네임 / 조회 수 / 첫 번째 본문(옵션)-->
+        <TextView
+            android:id="@+id/tv_31"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="시발"
+            android:textColor="#848484"/>
+
+        <!--photo or video-->
+        <FrameLayout
+            android:id="@+id/fl_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp">
+
+            <ImageView
+                android:id="@+id/iv_31"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"/>
+
+            <!--iv_video_icon-->
+            <ImageView
+                android:id="@+id/iv_video_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@android:drawable/ic_media_play"
+                android:background="@drawable/x_mask_oval_sidemenuicon_normal"/>
+        </FrameLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>

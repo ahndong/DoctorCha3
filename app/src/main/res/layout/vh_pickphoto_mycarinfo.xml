@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="1dp"
+    android:layout_margin="1dp"
+    android:background="@drawable/x_bg_outline_nopadding">
+
+    <ImageView
+        android:id="@+id/iv_31"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop" />
+
+    <ImageView
+        android:id="@+id/iv_32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@android:drawable/ic_delete"/>
+
+    <TextView
+        android:id="@+id/tv_31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="13sp"
+        android:textColor="#c4c4c4"
+        android:drawableTop="@android:drawable/ic_menu_camera" />
+
+</FrameLayout>

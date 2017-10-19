@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fl_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="6dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp">
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/x_bg_label">
+
+                <!--board name-->
+                <Spinner
+                    android:id="@+id/sp_cn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/x_bg_label">
+
+                <!--board name-->
+                <Spinner
+                    android:id="@+id/sp_bn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </FrameLayout>
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/et_tt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="제목(50자 이내)"
+            android:maxLength="50"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginTop="2dp"
+            android:padding="6dp"
+            android:background="@drawable/x_bg_label" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:layout_marginBottom="2dp"/>
+
+        <LinearLayout
+            android:id="@+id/ll_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:padding="4dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@android:color/black">
+
+            <TextView
+                android:id="@+id/tv_media"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:gravity="center"
+                android:text="갤러리"
+                android:textSize="15sp"
+                android:textColor="@android:color/white"
+                android:background="@drawable/x_mask_oval_maincategory"/>
+
+            <TextView
+                android:id="@+id/tv_del"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:gravity="center"
+                android:text="삭제"
+                android:textSize="15sp"
+                android:textColor="@android:color/white"
+                android:background="@drawable/x_mask_oval_maincategory"/>
+
+            <TextView
+                android:id="@+id/tv_confirm"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:gravity="center"
+                android:text="저장"
+                android:textSize="15sp"
+                android:textColor="@android:color/white"
+                android:background="@drawable/x_mask_oval_maincategory"/>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/decelerate_interpolator">
+    <scale android:fromXScale="1.0" android:toXScale="0"
+        android:fromYScale="1.0" android:toYScale="0"
+        android:pivotX="50%p" android:pivotY="50%p"
+        android:duration="@android:integer/config_longAnimTime" />
+
+    <alpha android:fromAlpha="1.0" android:toAlpha="0"
+        android:duration="@android:integer/config_longAnimTime"/>
+</set>
+
+<!--
+1. interpolator는 반응없다
+2. zAdjustment="bottom"이 먼지는 몰라도 일반 Activity animation에서는 아레 zoomout는 수행된다
+3. 근데, 투명 배경 activity 혼자서 zoomout시킬 때 zAdjustment="bottom"를 주면 animation이 안먹는다
+4. 참나...activity_zoomin은 잘도 동작한다
+TODO : activity_zoomout도 낸중에 정리하자
+-->
